@@ -13,16 +13,19 @@ import java.util.Set;
 public class Doctor extends NamedEntity {
 
     public static final String ALL_SORTED = "Doctor.getAllSorted";
-    @OneToOne
-    private Certificate certificate;
     private String comments;
     private String email;
-    @OneToMany(fetch = FetchType.EAGER)
-    private Set<Expert> expertIn;
     private String lections;
     private String login;
     private String password;
     private String preferential;
+    private String telAdditional;
+    private String telNumber;
+
+    @OneToOne
+    private Certificate certificate;
+    @OneToMany(fetch = FetchType.EAGER)
+    private Set<Expert> expertIn;
     @OneToMany(fetch = FetchType.EAGER)
     private Set<Specialty> specialties;
 
@@ -32,13 +35,23 @@ public class Doctor extends NamedEntity {
     @ElementCollection(fetch = FetchType.EAGER)
     private Set<TargetAudience> targetAudiences;
 
-    private String telAdditional;
-    private String telNumber;
-
     @OneToMany(mappedBy = "doctor",fetch = FetchType.EAGER)
     private Set<Clinic> clinics;
 
     public Doctor() {
+    }
+
+    public Doctor(Integer id, String name, String comments, String email, String lections, String login,
+                  String password, String preferential, String telAdditional, String telNumber) {
+        super(id, name);
+        this.comments = comments;
+        this.email = email;
+        this.lections = lections;
+        this.login = login;
+        this.password = password;
+        this.preferential = preferential;
+        this.telAdditional = telAdditional;
+        this.telNumber = telNumber;
     }
 
     public Doctor(Integer id, String name, Certificate certificate, String comments, String email,

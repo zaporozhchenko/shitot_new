@@ -25,7 +25,8 @@ public class DoctorRepositoryImpl implements DoctorRepository {
     @Transactional
     public Doctor save(Doctor doctor) {
         if (doctor.isNew()) {
-            em.persist(doctor);
+            em.persist(doctor.getCertificate());
+//            em.persist(doctor);
             return doctor;
         } else return em.merge(doctor);
     }

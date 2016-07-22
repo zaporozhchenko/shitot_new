@@ -14,6 +14,7 @@ public class AbstractDoctorController {
     DoctorService service;
 
     public Doctor create(Doctor doctor){
+        doctor.setId(null);
         return service.save(doctor);
     }
 

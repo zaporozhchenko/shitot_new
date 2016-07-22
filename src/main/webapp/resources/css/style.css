@@ -1,7 +1,9 @@
 body {
     font-family: Arial, serif;
 }
-
+dl{
+    margin-bottom: 5px;
+}
 dt {
     display: inline-block;
     width: 250px;

@@ -1,9 +1,10 @@
+<%@ page import="org.springframework.util.StringUtils" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <h2>Add new doctor</h2>
 <hr>
 <jsp:useBean id="doctor" type="com.shitot.model.Doctor" scope="request"/>
-<form action="doctors" method="get">
+<form action="doctors" method="post">
     <%--doctors?id=&name=Doctor1&
     login=doc1&
     password=1&
@@ -81,10 +82,9 @@
         <dt>Select doctor target Audience:</dt>
         <dd>
             <fieldset>
-                <legend>Select</legend>
                 <c:forEach items="${targetAudienceList}" var="t">
                     <input type="checkbox" name="target" value="${t}"
-                           <c:if test="${doctor.targetAudiences[t]}">checked="checked"</c:if>>${t}
+                           <c:if test="${doctor.targetAudiences.contains(t)}">checked="checked"</c:if>>${t}
                 </c:forEach>
             </fieldset>
         </dd>
@@ -98,7 +98,7 @@
     <dl>
         <dt>Enter doctor experiences:</dt>
         <dd>
-            <input type="text" name="expert" value="${doctor.expertIn}"/>
+            <input type="text" name="expert" value="<%=StringUtils.collectionToCommaDelimitedString(doctor.getExpertIn())%>"/>
         </dd>
     </dl>
     <dl>
@@ -106,7 +106,7 @@
         <dd>
             <input list="certificate" value="${doctor.certificate}" name="certificate">
             <datalist id="certificate">
-                <c:forEach items="${cerificateList}" var="c">
+                <c:forEach items="${certificateList}" var="c">
                     <option>${c}</option>
                 </c:forEach>
             </datalist>
