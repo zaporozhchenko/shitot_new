@@ -1,0 +1,21 @@
+body {
+    font-family: Arial, serif;
+}
+
+dt {
+    display: inline-block;
+    width: 250px;
+}
+
+dd {
+    display: inline-block;
+    margin-left: 8px;
+    vertical-align: top;
+}
+
+a {
+    text-decoration: none;
+}
+.content{
+    background-color: azure;
+}

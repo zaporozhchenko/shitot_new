@@ -6,51 +6,58 @@ import java.util.Set;
 /**
  * Created by Next on 12.07.2016.
  */
+@NamedQueries({
+                  @NamedQuery(name = Doctor.ALL_SORTED,query = "select d from doctors d order by d.name")
+})
 @Entity(name = "doctors")
 public class Doctor extends NamedEntity {
 
+    public static final String ALL_SORTED = "Doctor.getAllSorted";
     @OneToOne
     private Certificate certificate;
     private String comments;
     private String email;
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private Set<Expert> expertIn;
     private String lections;
+    private String login;
     private String password;
     private String preferential;
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private Set<Specialty> specialties;
+
     @Enumerated(EnumType.STRING)
     @CollectionTable(name = "doctor_audience", joinColumns = @JoinColumn(name = "doctor_id"))
     @Column(name = "target_audience")
     @ElementCollection(fetch = FetchType.EAGER)
     private Set<TargetAudience> targetAudiences;
+
     private String telAdditional;
     private String telNumber;
 
-    @OneToMany(mappedBy = "doctor")
+    @OneToMany(mappedBy = "doctor",fetch = FetchType.EAGER)
     private Set<Clinic> clinics;
 
     public Doctor() {
     }
 
-    public Doctor(String name, Certificate certificate, String comments, String email,
-                  Set<Expert> expertIn, String lections, String password, String preferential,
+    public Doctor(Integer id, String name, Certificate certificate, String comments, String email,
+                  Set<Expert> expertIn, String lections, String login, String password, String preferential,
                   Set<Specialty> specialties, Set<TargetAudience> targetAudiences, String telAdditional,
-                  String telNumber, Set<Clinic> clinics) {
-        super(name);
+                  String telNumber) {
+        super(id, name);
         this.certificate = certificate;
         this.comments = comments;
         this.email = email;
         this.expertIn = expertIn;
         this.lections = lections;
+        this.login = login;
         this.password = password;
         this.preferential = preferential;
         this.specialties = specialties;
         this.targetAudiences = targetAudiences;
         this.telAdditional = telAdditional;
         this.telNumber = telNumber;
-        this.clinics = clinics;
     }
 
     public Certificate getCertificate() {
@@ -99,6 +106,14 @@ public class Doctor extends NamedEntity {
 
     public void setLections(String lections) {
         this.lections = lections;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public String getPassword() {

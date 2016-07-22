@@ -16,7 +16,7 @@ public class Slot extends BaseEntity{
 
     @Enumerated(EnumType.STRING)
     @CollectionTable(name = "slot_intervals", joinColumns = @JoinColumn(name = "slot_id"))
-    @Column(name = "interval")
+    @Column(name = "interv")
     @ElementCollection(fetch = FetchType.EAGER)
     private Set<Interval> intervals;
 
@@ -42,5 +42,13 @@ public class Slot extends BaseEntity{
 
     public void setIntervals(Set<Interval> intervals) {
         this.intervals = intervals;
+    }
+
+    @Override
+    public String toString() {
+        return "Slot{" +
+                   "dayOfWeek=" + dayOfWeek +
+                   ", intervals=" + intervals +
+                   '}';
     }
 }

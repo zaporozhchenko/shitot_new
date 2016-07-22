@@ -9,10 +9,14 @@ import javax.persistence.*;
 @Access(AccessType.FIELD)
 public class BaseEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     protected Integer id;
 
-    protected BaseEntity() {
+    public BaseEntity() {
+    }
+
+    protected BaseEntity(Integer id) {
+        this.id = id;
     }
 
     public Integer getId() {
@@ -23,8 +27,8 @@ public class BaseEntity {
         this.id = id;
     }
 
-    public boolean isNew(){
-        return id==null;
+    public boolean isNew() {
+        return id == null;
     }
 
     @Override

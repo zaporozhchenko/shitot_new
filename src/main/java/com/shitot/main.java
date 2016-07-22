@@ -1,9 +1,6 @@
 package com.shitot;
 
-import com.shitot.model.Clinic;
-import com.shitot.model.Doctor;
-import com.shitot.model.Interval;
-import com.shitot.model.Slot;
+import com.shitot.model.*;
 
 import java.lang.reflect.Array;
 import java.time.DayOfWeek;
@@ -17,8 +14,7 @@ public class main {
     );
 
     public static void main(String[] args) {
-        Set<Interval> intervals = new HashSet<>();
-        new Slot(DayOfWeek.SUNDAY, intervals);
+
     }
 
     private static void createSchedule(Doctor doc) {

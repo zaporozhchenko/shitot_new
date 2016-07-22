@@ -13,6 +13,11 @@ public class NamedEntity extends BaseEntity {
     protected NamedEntity() {
     }
 
+    public NamedEntity(Integer id, String name) {
+        super(id);
+        this.name = name;
+    }
+
     protected NamedEntity(String name) {
         this.name = name;
     }
@@ -23,5 +28,10 @@ public class NamedEntity extends BaseEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }
