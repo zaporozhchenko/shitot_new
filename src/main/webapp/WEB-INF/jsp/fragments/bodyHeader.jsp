@@ -3,7 +3,7 @@
     <div class="container">
         <h1>
             <a href="${pageContext.request.contextPath}">SHITOT ORG</a>
-            <img src="${pageContext.request.contextPath}/pics/logo4.png" align="right"/>
+            <img src="resources/pics/logo4.png" align="right"/>
         </h1>
     </div>
     <hr>

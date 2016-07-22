@@ -1,6 +1,7 @@
 package com.shitot.web.doctor;
 
 import com.shitot.model.*;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,7 @@ import java.util.stream.Stream;
  */
 @Controller
 @RequestMapping(value = "/doctors")
+@Scope("session")
 public class DoctorController extends AbstractDoctorController {
 
     @RequestMapping(value = "/create", method = RequestMethod.GET)

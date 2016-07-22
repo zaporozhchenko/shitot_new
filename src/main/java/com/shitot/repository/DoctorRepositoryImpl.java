@@ -1,9 +1,6 @@
 package com.shitot.repository;
 
-import com.shitot.model.Certificate;
-import com.shitot.model.Doctor;
-import com.shitot.model.Expert;
-import com.shitot.model.Specialty;
+import com.shitot.model.*;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
