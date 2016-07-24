@@ -9,7 +9,8 @@
     <div class="container wrapper">
         <jsp:include page="fragments/bodyHeader.jsp"/>
         <div class="row content">
-            <jsp:include page="${page}.jsp" />
+            <jsp:include page="${page}.jsp"/>
         </div>
     </div>
+    <jsp:include page="fragments/pageFooter.jsp"/>
 </body>

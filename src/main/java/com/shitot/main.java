@@ -27,6 +27,6 @@ public class main {
                 return;
             }
         }
-        doc.getClinics().add(clinic);
+//        doc.getClinics().stream().forEach();
     }
 }

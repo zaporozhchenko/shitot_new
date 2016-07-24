@@ -1,6 +1,7 @@
 package com.shitot.web.doctor;
 
 import com.shitot.model.Doctor;
+import com.shitot.model.TargetAudience;
 import com.shitot.service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -20,5 +21,12 @@ public class AbstractDoctorController {
 
     public Doctor get(int id) {
         return service.get(id);
+    }
+
+    protected void fillListsAttributes(Model model) {
+        model.addAttribute("specialtyList", service.getAllSpecialties());
+        model.addAttribute("expertList", service.getAllExperiences());
+        model.addAttribute("certificateList", service.getAllCertificates());
+        model.addAttribute("targetAudienceList", TargetAudience.values());
     }
 }

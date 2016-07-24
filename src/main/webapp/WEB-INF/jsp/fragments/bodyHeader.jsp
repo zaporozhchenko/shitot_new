@@ -1,9 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <header>
-    <div class="container">
+    <div class="row">
         <h1>
             <a href="${pageContext.request.contextPath}">SHITOT ORG</a>
-            <img src="resources/pics/logo4.png" align="right"/>
+            <img src="resources/images/logo4.png" align="right"/>
         </h1>
     </div>
     <hr>

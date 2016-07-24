@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <c:set var="url">${pageContext.request.requestURL}</c:set>
     <base href="${fn:substring(url, 0, fn:length(url) - fn:length(pageContext.request.requestURI))}${pageContext.request.contextPath}/" />
-    <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="webjars/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="webjars/datatables/1.10.12/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="resources/css/style.css">
-    <script src="resources/js/jquery.min.js"></script>
-    <script src="resources/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="webjars/jquery/2.2.4/jquery.min.js"></script>
 </head>
