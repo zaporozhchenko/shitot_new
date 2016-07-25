@@ -6,6 +6,8 @@ import com.shitot.service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 
+import java.util.List;
+
 /**
  * Created by Next on 21.07.2016.
  */
@@ -28,5 +30,9 @@ public class AbstractDoctorController {
         model.addAttribute("expertList", service.getAllExperiences());
         model.addAttribute("certificateList", service.getAllCertificates());
         model.addAttribute("targetAudienceList", TargetAudience.values());
+    }
+
+    public List<Doctor> getAll() {
+        return service.getAll();
     }
 }
