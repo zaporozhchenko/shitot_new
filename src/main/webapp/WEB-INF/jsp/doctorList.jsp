@@ -25,9 +25,10 @@
                 <td><%=StringUtils.collectionToCommaDelimitedString(doctor.getSpecialties())%>
                 </td>
                 <td>${doctor.telNumber}</td>
-                <td><%=StringUtils.collectionToCommaDelimitedString(doctor.getTargetAudiences())%></td>
-                <%--<td><a class="btn btn-success btn-xs" href="doctors/update?id=${doctor.id}">Update</a></td>--%>
-                <td><a class="btn btn-success btn-xs update" id="${doctor.id}">Update</a></td>
+                <td><%=StringUtils.collectionToCommaDelimitedString(doctor.getTargetAudiences())%>
+                </td>
+                    <%--<td><a class="btn btn-success btn-xs" href="doctors/update?id=${doctor.id}">Update</a></td>--%>
+                <td><a class="btn btn-success btn-xs" onclick="update(${doctor.id})">Update</a></td>
                 <td><a class="btn btn-danger btn-xs" href="doctors/delete?id=${doctor.id}">Delete</a></td>
                 <td><a href="viewDoctorSchedule?id=${doctor.id}">View Schedule</a></td>
             </tr>
@@ -178,9 +179,15 @@
         });
         $('#detailsForm').submit(function () {
 
-        })
-        $('.update')
+        });
     });
-    function add() {
+    var form = $('#detailsForm');
+    function update(id) {
+        $.get("rest/doctors/" + id, function (data) {
+            $.each(data, function (key, value) {
+                form.find("[name='"+key+"']").val(value);
+            });
+            $('#editRow').modal();
+        })
     }
 </script>
