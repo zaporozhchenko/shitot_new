@@ -1,6 +1,7 @@
 package com.shitot.web;
 
 import com.shitot.model.Doctor;
+import com.shitot.model.TargetAudience;
 import com.shitot.service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,6 +31,10 @@ public class RootController {
         List<Doctor> doctors = doctorService.getAll();
         model.addAttribute("doctorList", doctors);
         model.addAttribute("page","doctorList");
+        model.addAttribute("specialtyList", doctorService.getAllSpecialties());
+        model.addAttribute("expertList", doctorService.getAllExperiences());
+        model.addAttribute("certificateList", doctorService.getAllCertificates());
+        model.addAttribute("targetAudienceList", doctorService.getAllTargetAudiences());
         return "index";
     }
 }

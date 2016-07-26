@@ -28,11 +28,7 @@ public class Doctor extends NamedEntity {
     private Set<Expert> expertIn;
     @OneToMany(fetch = FetchType.EAGER)
     private Set<Specialty> specialties;
-
-    @Enumerated(EnumType.STRING)
-    @CollectionTable(name = "doctor_audience", joinColumns = @JoinColumn(name = "doctor_id"))
-    @Column(name = "target_audience")
-    @ElementCollection(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER)
     private Set<TargetAudience> targetAudiences;
 
     @OneToMany(mappedBy = "doctor",fetch = FetchType.EAGER)

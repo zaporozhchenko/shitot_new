@@ -1,9 +1,6 @@
 package com.shitot.service;
 
-import com.shitot.model.Certificate;
-import com.shitot.model.Doctor;
-import com.shitot.model.Expert;
-import com.shitot.model.Specialty;
+import com.shitot.model.*;
 
 import java.util.List;
 
@@ -23,4 +20,6 @@ public interface DoctorService {
     List<Doctor> getAll();
 
     Doctor get(int id);
+
+    List<TargetAudience> getAllTargetAudiences();
 }

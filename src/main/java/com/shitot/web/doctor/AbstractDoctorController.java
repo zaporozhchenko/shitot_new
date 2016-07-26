@@ -29,7 +29,7 @@ public class AbstractDoctorController {
         model.addAttribute("specialtyList", service.getAllSpecialties());
         model.addAttribute("expertList", service.getAllExperiences());
         model.addAttribute("certificateList", service.getAllCertificates());
-        model.addAttribute("targetAudienceList", TargetAudience.values());
+        model.addAttribute("targetAudienceList", service.getAllTargetAudiences());
     }
 
     public List<Doctor> getAll() {

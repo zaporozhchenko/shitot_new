@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <h2>Doctors</h2>
 <div class="view-box">
-    <a class="btn btn-default" id="addDoctor">New doctor</a>
+    <a class="btn btn-default" id="addDoctor" onclick="add()">New doctor</a>
     <hr>
     <table class="table table-striped" id="dataTable">
         <thead>
@@ -11,6 +11,7 @@
             <th>Name</th>
             <th>Specialties</th>
             <th>Tel number</th>
+            <th>Target audience</th>
             <th></th>
             <th></th>
             <th></th>
@@ -24,9 +25,11 @@
                 <td><%=StringUtils.collectionToCommaDelimitedString(doctor.getSpecialties())%>
                 </td>
                 <td>${doctor.telNumber}</td>
-                <td><a class="btn btn-success btn-xs" href="doctors/update?id=${doctor.id}">Update</a></td>
+                <td><%=StringUtils.collectionToCommaDelimitedString(doctor.getTargetAudiences())%></td>
+                <%--<td><a class="btn btn-success btn-xs" href="doctors/update?id=${doctor.id}">Update</a></td>--%>
+                <td><a class="btn btn-success btn-xs update" id="${doctor.id}">Update</a></td>
                 <td><a class="btn btn-danger btn-xs" href="doctors/delete?id=${doctor.id}">Delete</a></td>
-                <td><a href="viewDoctorSchedule?doctorId=${doctor.id}">View Schedule</a></td>
+                <td><a href="viewDoctorSchedule?id=${doctor.id}">View Schedule</a></td>
             </tr>
         </c:forEach>
         </tbody>
@@ -37,7 +40,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h2 class="modal-title">${id==0?"Add new doctor":"Edit doctor"}</h2>
+                <h2 class="modal-title">${doctor.id==0?"Add new doctor":"Edit doctor"}</h2>
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" action="doctors" method="post" id="detailsForm">
@@ -176,5 +179,8 @@
         $('#detailsForm').submit(function () {
 
         })
-    })
+        $('.update')
+    });
+    function add() {
+    }
 </script>

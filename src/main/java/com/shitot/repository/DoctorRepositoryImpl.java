@@ -52,4 +52,9 @@ public class DoctorRepositoryImpl implements DoctorRepository {
     public Doctor get(int id) {
         return em.find(Doctor.class, id);
     }
+
+    @Override
+    public List<TargetAudience> getAllTargetAudiences() {
+        return em.createNamedQuery(TargetAudience.ALL_SORTED,TargetAudience.class).getResultList();
+    }
 }

@@ -1,9 +1,6 @@
 package com.shitot.service;
 
-import com.shitot.model.Certificate;
-import com.shitot.model.Doctor;
-import com.shitot.model.Expert;
-import com.shitot.model.Specialty;
+import com.shitot.model.*;
 import com.shitot.repository.DoctorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +24,11 @@ public class DoctorServiceImpl implements DoctorService {
     @Override
     public Doctor get(int id) {
         return repository.get(id);
+    }
+
+    @Override
+    public List<TargetAudience> getAllTargetAudiences() {
+        return repository.getAllTargetAudiences();
     }
 
     @Override

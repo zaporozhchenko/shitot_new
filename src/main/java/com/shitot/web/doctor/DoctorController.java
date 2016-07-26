@@ -56,7 +56,7 @@ public class DoctorController extends AbstractDoctorController {
         if (!specialty1.isEmpty() || !specialty2.isEmpty())
             doctor.setSpecialties(Stream.of(specialty1, specialty2).map(Specialty::new).collect(Collectors.toSet()));
         if (targets!=null)
-            doctor.setTargetAudiences(Stream.of(targets).map(TargetAudience::valueOf).collect(Collectors.toSet()));
+            doctor.setTargetAudiences(Stream.of(targets).map(TargetAudience::new).collect(Collectors.toSet()));
 //        if (doctor.isNew()) super.create(doctor);
 //        else super.update(doctor);
         return "redirect:/doctors";
