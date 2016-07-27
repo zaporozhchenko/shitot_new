@@ -8,4 +8,6 @@ import com.shitot.model.User;
 public interface UserRepository {
 
     User login(User user);
+
+    User register(User user);
 }

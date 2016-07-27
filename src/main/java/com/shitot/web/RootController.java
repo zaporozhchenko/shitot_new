@@ -40,17 +40,30 @@ public class RootController {
         String login = request.getParameter("login");
         String password = request.getParameter("password");
         loggedUser = userService.login(new User(login, password));
-        if (loggedUser!=null){
-            model.addAttribute("loggedUser",loggedUser.getLogin());
-            model.addAttribute("page","userHomePage");
+        if (loggedUser != null) {
+            model.addAttribute("loggedUser", loggedUser.getLogin());
+            model.addAttribute("page", "userHomePage");
             return "index";
         }
         model.addAttribute("page", "login");
         return "index";
     }
+
     @RequestMapping(value = "/logout")
-    public String logout(Model model){
-        loggedUser=null;
+    public String logout(Model model) {
+        loggedUser = null;
+        model.addAttribute("page", "login");
+        return "index";
+    }
+
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public String registerUser(HttpServletRequest request, Model model) {
+        String login = request.getParameter("newlogin");
+        String password = request.getParameter("newpassword");
+        User newUser = userService.register(new User(login, password));
+        if (newUser != null) {
+            model.addAttribute("result", "Registered");
+        } else model.addAttribute("result", "User exists!");
         model.addAttribute("page", "login");
         return "index";
     }

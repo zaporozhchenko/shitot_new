@@ -7,4 +7,6 @@ import com.shitot.model.User;
  */
 public interface UserService {
     User login(User user);
+
+    User register(User user);
 }

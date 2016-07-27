@@ -8,7 +8,7 @@ import javax.persistence.NamedQuery;
  * Created by Next on 26.07.2016.
  */
 @NamedQueries({
-                  @NamedQuery(name = User.GET_BY_LOGIN,query = "select u from users u where u.login=:login and u.password=:password")
+                  @NamedQuery(name = User.GET_BY_LOGIN,query = "select u from users u where u.login=:login")
 })
 @Entity(name = "users")
 public class User extends BaseEntity{

@@ -22,4 +22,14 @@ public class UserServiceImpl implements UserService {
         }
         return result;
     }
+
+    @Override
+    public User register(User user) {
+        User result = null;
+        try {
+            result = repository.register(user);
+        } catch (Exception e) {
+        }
+        return result;
+    }
 }
