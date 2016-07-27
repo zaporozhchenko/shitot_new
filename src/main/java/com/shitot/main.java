@@ -1,10 +1,10 @@
 package com.shitot;
 
-import com.shitot.model.*;
+import com.shitot.model.Clinic;
+import com.shitot.model.Doctor;
 
-import java.lang.reflect.Array;
-import java.time.DayOfWeek;
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by Next on 12.07.2016.
@@ -14,7 +14,7 @@ public class main {
     );
 
     public static void main(String[] args) {
-
+        
     }
 
     private static void createSchedule(Doctor doc) {

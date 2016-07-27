@@ -45,7 +45,7 @@
         </div>
     </div>
 </div>
-<div hidden
+
 </body>
 <script>
     function reg() {
