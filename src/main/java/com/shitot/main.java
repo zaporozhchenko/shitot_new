@@ -7,6 +7,10 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 
 import java.util.*;
 
+import static com.shitot.model.TargetAudience.CHILDREN;
+import static com.shitot.model.TargetAudience.ELDERY;
+import static com.shitot.model.TargetAudience.TEENS;
+
 /**
  * Created by Next on 12.07.2016.
  */
@@ -19,12 +23,15 @@ public class main {
             appCtx.load("spring-db.xml");
 //            appCtx.load("spring-app.xml", "spring-db.xml", "spring-mvc.xml");
             appCtx.refresh();
-            DoctorRepositoryImpl repository = (DoctorRepositoryImpl)appCtx.getBean(DoctorRepository.class);
+            DoctorRepository repository = appCtx.getBean(DoctorRepository.class);
             Doctor doctor = new Doctor("doctor5", "doc5", "5", "doc5@mail", "123456789", "654321", "lections",
                                           "prefers", "comments");
-            doctor.setCertificate(new Certificate("certif5"));
-            doctor.setExpertIn(new HashSet<>(Arrays.asList(new Expert("expert51"),new Expert("expert52"))));
-            doctor.setTargetAudiences(null);
+//            doctor.setCertificate(new Certificate("certif5"));
+//            doctor.setExpertIn(new Expert(0,"expert51"),new Expert(1,"expert52"));
+//            doctor.setTargetAudiences(CHILDREN,TEENS,ELDERY);
+//            doctor.setSpecialties(new Specialty(0,"Specialty1"));
+            doctor = repository.save(doctor);
+            repository.setCertificate(doctor.getId(), "Certificate1");
         }
     }
 

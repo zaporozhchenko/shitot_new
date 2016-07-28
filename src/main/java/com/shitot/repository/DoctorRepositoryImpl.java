@@ -22,7 +22,6 @@ public class DoctorRepositoryImpl implements DoctorRepository {
     @Transactional
     public Doctor save(Doctor doctor) {
         if (doctor.isNew()) {
-//            em.persist(doctor.getCertificate());
             em.persist(doctor);
             return doctor;
         } else return em.merge(doctor);
@@ -55,6 +54,20 @@ public class DoctorRepositoryImpl implements DoctorRepository {
 
     @Override
     public List<TargetAudience> getAllTargetAudiences() {
-        return em.createNamedQuery(TargetAudience.ALL_SORTED,TargetAudience.class).getResultList();
+        return em.createNamedQuery(TargetAudience.ALL_SORTED, TargetAudience.class).getResultList();
+    }
+
+    @Override
+    @Transactional
+    public void setCertificate(int id, String certificateName) {
+        List<Certificate> resultList = em.createNamedQuery(Certificate.BY_NAME, Certificate.class)
+                                         .setParameter("name", certificateName)
+                                         .getResultList();
+        Certificate certificate;
+        if (resultList.size() == 0) {
+            certificate = new Certificate(certificateName);
+            em.persist(certificate);
+        } else certificate = resultList.get(0);
+        em.find(Doctor.class, id).setCertificate(certificate);
     }
 }

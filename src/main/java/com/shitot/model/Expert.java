@@ -17,7 +17,12 @@ public class Expert extends NamedEntity{
     public Expert() {
     }
 
+    public Expert(Integer id, String name) {
+        super(id, name);
+    }
+
     public Expert(String name) {
         super(name);
     }
+
 }

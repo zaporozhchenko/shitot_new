@@ -1,13 +1,13 @@
 package com.shitot.model;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by Next on 12.07.2016.
  */
 @NamedQueries({
-                  @NamedQuery(name = Doctor.ALL_SORTED,query = "select d from doctors d order by d.name")
+                  @NamedQuery(name = Doctor.ALL_SORTED, query = "select d from doctors d order by d.name")
 })
 @Entity(name = "doctors")
 public class Doctor extends NamedEntity {
@@ -31,7 +31,7 @@ public class Doctor extends NamedEntity {
     @OneToMany(fetch = FetchType.EAGER)
     private Set<TargetAudience> targetAudiences;
 
-    @OneToMany(mappedBy = "doctor",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "doctor", fetch = FetchType.EAGER)
     private Set<Clinic> clinics;
 
     public Doctor() {
@@ -184,5 +184,17 @@ public class Doctor extends NamedEntity {
 
     public void setTelNumber(String telNumber) {
         this.telNumber = telNumber;
+    }
+
+    public void setExpertIn(Expert... experts) {
+        expertIn = new HashSet<>(Arrays.asList(experts));
+    }
+
+    public void setTargetAudiences(TargetAudience... audiences) {
+        targetAudiences = new HashSet<>(Arrays.asList(audiences));
+    }
+
+    public void setSpecialties(Specialty... specs) {
+        specialties = new HashSet<>(Arrays.asList(specs));
     }
 }

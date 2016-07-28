@@ -15,11 +15,19 @@ import java.util.Arrays;
 public class TargetAudience extends NamedEntity {
 
     public static final String ALL_SORTED = "TargetAudience.getAllSorted";
+    public static final TargetAudience CHILDREN = new TargetAudience(0,"Children");
+    public static final TargetAudience TEENS = new TargetAudience(1,"Teens");
+    public static final TargetAudience ADULTS = new TargetAudience(2,"Adults");
+    public static final TargetAudience ELDERY = new TargetAudience(3,"Eldery");
 
     public TargetAudience() {
     }
 
     public TargetAudience(String name) {
         super(name);
+    }
+
+    public TargetAudience(Integer id, String name) {
+        super(id, name);
     }
 }

@@ -21,4 +21,7 @@ public class Specialty extends NamedEntity {
         super(name);
     }
 
+    public Specialty(Integer id, String name) {
+        super(id, name);
+    }
 }
