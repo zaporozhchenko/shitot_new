@@ -69,6 +69,19 @@ public class Doctor extends NamedEntity {
         this.telNumber = telNumber;
     }
 
+    public Doctor(String name, String login, String password, String email, String telNumber, String telAdditional,
+                  String lections, String preferential, String comments) {
+        super(name);
+        this.comments = comments;
+        this.email = email;
+        this.lections = lections;
+        this.login = login;
+        this.password = password;
+        this.preferential = preferential;
+        this.telAdditional = telAdditional;
+        this.telNumber = telNumber;
+    }
+
     public Certificate getCertificate() {
         return certificate;
     }
