@@ -6,6 +6,7 @@ import java.util.Set;
 
 /**
  * Created by Next on 12.07.2016.
+ * Slot is workingDay, you may create 7 slots for every clinic with empty set of intervals
  */
 @Entity(name = "slots")
 public class Slot extends BaseEntity{

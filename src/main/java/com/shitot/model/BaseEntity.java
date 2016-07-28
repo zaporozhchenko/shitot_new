@@ -23,6 +23,7 @@ public class BaseEntity {
         return id;
     }
 
+    //really need?
     public void setId(Integer id) {
         this.id = id;
     }
