@@ -34,11 +34,11 @@ public class Doctor extends BaseEntity {
 
     @OneToOne(fetch = FetchType.EAGER)
     private Certificate certificate;
-    @OneToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
     private Set<Qualification> qualifications;
-    @OneToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
     private Set<Specialty> specialties;
-    @OneToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
     private Set<TargetAudience> targetAudiences;
 
     @OneToMany(mappedBy = "doctor", fetch = FetchType.EAGER)
