@@ -1,7 +1,6 @@
 package com.shitot.repository;
 
 import com.shitot.model.*;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -15,7 +14,7 @@ public interface DoctorRepository {
 
     List<Specialty> getAllSpecialties();
 
-    List<Expert> getAllExperiences();
+    List<Qualification> getAllQualifications();
 
     List<Doctor> getAll();
 
@@ -24,4 +23,10 @@ public interface DoctorRepository {
     List<TargetAudience> getAllTargetAudiences();
 
     void setCertificate(int id, String certificateName);
+
+    void setTargetAudiences(Integer id, String... audienceNames);
+
+    void setSpecialties(Integer id, String... specialtieNames);
+
+    void setQualifications(Integer id, String... qualificationNames);
 }

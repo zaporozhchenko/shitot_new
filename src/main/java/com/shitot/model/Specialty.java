@@ -20,8 +20,4 @@ public class Specialty extends NamedEntity {
     public Specialty(String name) {
         super(name);
     }
-
-    public Specialty(Integer id, String name) {
-        super(id, name);
-    }
 }

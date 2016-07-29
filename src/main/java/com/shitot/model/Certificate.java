@@ -9,13 +9,11 @@ import javax.persistence.NamedQuery;
  */
 @NamedQueries({
                   @NamedQuery(name = Certificate.ALL_SORTED, query = "select c from certificates c order by c.name"),
-                  @NamedQuery(name = Certificate.BY_NAME, query = "select c from certificates c where c.name=:name")
 })
 @Entity(name = "certificates")
 public class Certificate extends NamedEntity {
 
     public static final String ALL_SORTED = "Certificate.getAllSorted";
-    public static final String BY_NAME = "Certificate.getByName";
 
     public Certificate() {
     }
