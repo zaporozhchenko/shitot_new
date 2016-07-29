@@ -18,7 +18,14 @@
           p:driverClassName="com.mysql.jdbc.Driver"
           p:url="jdbc:mysql://localhost/shitot_new"
           p:username="root"
-          p:password=""/>
+          p:password="">
+        <property name="connectionProperties">
+            <props>
+                <prop key="useUnicode">yes</prop>
+                <prop key="characterEncoding">utf8</prop>
+            </props>
+        </property>
+    </bean>
 
     <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
 

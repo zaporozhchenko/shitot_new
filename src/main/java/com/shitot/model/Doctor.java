@@ -1,5 +1,6 @@
 package com.shitot.model;
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
@@ -17,13 +18,15 @@ public class Doctor extends BaseEntity {
     public static final String ALL_SORTED = "Doctor.getAllSorted";
 
     @NotEmpty
-    public String fullName;
+    private String fullName;
 
     @Column(unique = true, nullable = false)
     @NotEmpty
     private String login;
     private String password;
     @Column(unique = true)
+    @Email
+    @NotEmpty
     private String email;
     private String telNumber;
     private String telHome;

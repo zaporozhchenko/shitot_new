@@ -1,5 +1,7 @@
 package com.shitot.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
@@ -30,6 +32,7 @@ public class TargetAudience extends NamedEntity {
     }
 
     @ManyToMany(mappedBy = "targetAudiences")
+    @JsonIgnore
     private Set<Doctor> doctors;
 
     public Set<Doctor> getDoctors() {
