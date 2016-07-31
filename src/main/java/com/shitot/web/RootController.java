@@ -43,9 +43,10 @@ public class RootController {
         if (loggedUser != null) {
             model.addAttribute("loggedUser", loggedUser.getLogin());
             model.addAttribute("page", "userHomePage");
-            return "index";
         }
-        model.addAttribute("page", "login");
+        else {
+            model.addAttribute("page", "login");
+        }
         return "index";
     }
 
@@ -70,14 +71,9 @@ public class RootController {
 
     @RequestMapping(value = "/doctors", method = RequestMethod.GET)
     public String doctorList(Model model) {
-//        List<Doctor> doctors = doctorService.getAll();
-//        model.addAttribute("doctorList", doctors);
-//        model.addAttribute("specialtyList", doctorService.getAllSpecialties());
-//        model.addAttribute("expertList", doctorService.getAllExperiences());
-//        model.addAttribute("certificateList", doctorService.getAllCertificates());
-//        model.addAttribute("targetAudienceList", doctorService.getAllTargetAudiences());
-        model.addAttribute("page", "doctorList");
+        if (loggedUser == null) {
+            model.addAttribute("page", "login");
+        } else model.addAttribute("page", "doctorList");
         return "index";
     }
-
 }

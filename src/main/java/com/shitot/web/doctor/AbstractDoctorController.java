@@ -40,4 +40,12 @@ public class AbstractDoctorController {
     protected void update(DoctorTo doctor) {
         service.update(doctor);
     }
+
+    protected List<Doctor> getBySpecialty(String specialty) {
+        return service.getBySpecialty(specialty);
+    }
+
+    public List<Doctor> getByQualification(String qualification) {
+        return service.getByQualification(qualification);
+    }
 }

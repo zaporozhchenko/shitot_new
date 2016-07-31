@@ -25,4 +25,8 @@ public interface DoctorService {
     List<TargetAudience> getAllTargetAudiences();
 
     void update(DoctorTo doctorTo);
+
+    List<Doctor> getBySpecialty(String specialty);
+
+    List<Doctor> getByQualification(String qualification);
 }

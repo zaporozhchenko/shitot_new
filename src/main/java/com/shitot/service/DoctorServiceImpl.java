@@ -42,6 +42,16 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
+    public List<Doctor> getBySpecialty(String specialty) {
+        return repository.getBySpecialty(specialty);
+    }
+
+    @Override
+    public List<Doctor> getByQualification(String qualification) {
+        return repository.getByQualification(qualification);
+    }
+
+    @Override
     public List<Certificate> getAllCertificates() {
         return repository.getAllCertificates();
     }

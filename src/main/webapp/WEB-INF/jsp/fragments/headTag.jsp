@@ -13,4 +13,5 @@
     <link rel="stylesheet" href="resources/css/style.css">
     <script type="text/javascript" src="webjars/jquery/2.2.4/jquery.min.js"></script>
     <script type="text/javascript" src="webjars/noty/2.3.8/js/noty/packaged/jquery.noty.packaged.min.js"></script>
+    <script type="text/javascript" src="webjars/jquery-ui/1.12.0/jquery-ui.js"></script>
 </head>

@@ -1,16 +1,14 @@
 package com.shitot.web.doctor;
 
 import com.shitot.model.Doctor;
+import com.shitot.model.Specialty;
 import com.shitot.to.DoctorTo;
 import com.shitot.utils.JsonUtil;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -44,5 +42,20 @@ public class DoctorRestController extends AbstractDoctorController {
             super.create(JsonUtil.createNewFromTo(doctorTo));
         } else super.update(doctorTo);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/specs", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Specialty> getAllSpecialties() {
+        return service.getAllSpecialties();
+    }
+
+    @RequestMapping(value = "/by", params = "specialty", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Doctor> getBySpecialty(@RequestParam String specialty) {
+        return super.getBySpecialty(specialty);
+    }
+
+    @RequestMapping(value = "/by", params = "qualification", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Doctor> getByQualification(@RequestParam String qualification) {
+        return super.getByQualification(qualification);
     }
 }
