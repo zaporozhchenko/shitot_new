@@ -13,9 +13,9 @@ import java.util.Set;
  * Created by Next on 20.07.2016.
  */
 @NamedQueries({
-                  @NamedQuery(name = Qualification.ALL_SORTED, query = "select e from experiences e order by e.name")
+                  @NamedQuery(name = Qualification.ALL_SORTED, query = "select e from qualifications e order by e.name")
 })
-@Entity(name = "experiences")
+@Entity(name = "qualifications")
 public class Qualification extends NamedEntity {
     public static final String ALL_SORTED = "Qualification.getAllSorted";
 

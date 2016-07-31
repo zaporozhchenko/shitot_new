@@ -1,25 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <style>
-    .doctorlist {
-        border: 1px solid black;
-        border-radius: 8px;
-        overflow: auto;
-        box-shadow: 0 0 10px inset;
-    }
 
-    .doctorInfo {
-        border-bottom: 1px solid sandybrown;
-    }
-
-    a {
-        cursor: pointer;
-    }
 </style>
 <h2>Doctors <a class="btn btn-default" id="addDoctor" onclick="add()">New doctor</a></h2>
 <div class="view-box">
     <div class="container doctorlist"></div>
 </div>
-<jsp:include page="fragments/editDoctor.jsp"/>
+<jsp:include page="editDoctor.jsp"/>
 <div class="modal fade" id="editSpecs">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">

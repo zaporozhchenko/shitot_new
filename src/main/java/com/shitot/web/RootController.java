@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -31,24 +32,34 @@ public class RootController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String root(Model model) {
-        model.addAttribute("page", "login");
+//        model.addAttribute("page", "login");
+        model.addAttribute("page", "userHomePage");
         return "index";
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(HttpServletRequest request, Model model) {
-        String login = request.getParameter("login");
-        String password = request.getParameter("password");
-        loggedUser = userService.login(new User(login, password));
-        if (loggedUser != null) {
-            model.addAttribute("loggedUser", loggedUser.getLogin());
-            model.addAttribute("page", "userHomePage");
-        }
-        else {
-            model.addAttribute("page", "login");
-        }
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login(Model model,
+                        @RequestParam(required = false) boolean error,
+                        @RequestParam(required = false) String message) {
+        model.addAttribute("error", error);
+        model.addAttribute("message", message);
+        model.addAttribute("page", "login");
         return "index";
     }
+//    @RequestMapping(value = "/login", method = RequestMethod.POST)
+//    public String login(HttpServletRequest request, Model model) {
+//        String login = request.getParameter("login");
+//        String password = request.getParameter("password");
+//        loggedUser = userService.login(new User(login, password));
+//        if (loggedUser != null) {
+//            model.addAttribute("loggedUser", loggedUser.getLogin());
+//            model.addAttribute("page", "userHomePage");
+//        }
+//        else {
+//            model.addAttribute("page", "login");
+//        }
+//        return "index";
+//    }
 
     @RequestMapping(value = "/logout")
     public String logout(Model model) {
@@ -71,9 +82,10 @@ public class RootController {
 
     @RequestMapping(value = "/doctors", method = RequestMethod.GET)
     public String doctorList(Model model) {
-        if (loggedUser == null) {
-            model.addAttribute("page", "login");
-        } else model.addAttribute("page", "doctorList");
+//        if (loggedUser == null) {
+//            model.addAttribute("page", "login");
+//        } else
+            model.addAttribute("page", "doctorList");
         return "index";
     }
 }
