@@ -10,6 +10,7 @@ import java.util.List;
 @Entity(name = "intervals")
 public class Interval extends NamedEntity {
 
+    public static final Interval INT_6_7   = new Interval("06:00 - 07:00");
     public static final Interval INT_7_8   = new Interval("07:00 - 08:00");
     public static final Interval INT_8_9   = new Interval("08:00 - 09:00");
     public static final Interval INT_9_10  = new Interval("09:00 - 10:00");
@@ -25,7 +26,6 @@ public class Interval extends NamedEntity {
     public static final Interval INT_19_20 = new Interval("19:00 - 20:00");
     public static final Interval INT_20_21 = new Interval("20:00 - 21:00");
     public static final Interval INT_21_22 = new Interval("21:00 - 22:00");
-    public static final Interval INT_22_23 = new Interval("22:00 - 23:00");
 
     public Interval() {
     }
