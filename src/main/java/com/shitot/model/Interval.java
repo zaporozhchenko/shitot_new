@@ -4,6 +4,7 @@ package com.shitot.model;
  * Created by Next on 12.07.2016.
  */
 public enum Interval {
+    INT_6_7    ,// ("06:00 - 07:00"),
     INT_7_8    ,// ("07:00 - 08:00"),
     INT_8_9    ,// ("08:00 - 09:00"),
     INT_9_10   ,// ("09:00 - 10:00"),
